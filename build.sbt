@@ -9,6 +9,13 @@ scalafmtCheck       := true
 scalafmtSbtCheck    := true
 autoCompilerPlugins := true
 
+scalacOptions ++= Seq(
+  "-Xfatal-warnings",
+  "-language:implicitConversions",
+  "-language:higherKinds",
+  "-language:postfixOps"
+)
+
 ThisBuild / organization := "bar.simon"
 
 ThisBuild / Test / fork               := true
