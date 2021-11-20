@@ -1,6 +1,4 @@
-package bar.simon.gw2.achievements
-
-import bar.simon.gw2.achievements.daily.AchievementDaily
+package bar.simon.gw2.achievements.daily
 
 final case class AchievementDailies(
     pve: List[AchievementDaily],

@@ -12,7 +12,7 @@ final case class Achievement(
     `type`: AchievementType,
     flags: List[AchievementFlag],
     tiers: List[AchievementTier],
-    prerequisites: List[AchievementId],
-    bits: List[AchievementBit],
+    prerequisites: Option[List[AchievementId]],
+    bits: Option[List[AchievementBit]],
     pointCap: Option[PosInt]
 )
