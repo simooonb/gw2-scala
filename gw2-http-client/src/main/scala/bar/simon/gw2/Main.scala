@@ -1,9 +1,9 @@
 package bar.simon.gw2
 
 import cats.effect.{ExitCode, IO, IOApp}
+import bar.simon.gw2.utils.CollectionOps.SeqOps
 
 import scala.concurrent.duration.Duration
-import scala.util.Random
 
 object Main extends IOApp {
   override def run(args: List[String]): IO[ExitCode] = {
@@ -12,10 +12,15 @@ object Main extends IOApp {
 
     for {
       allAchievementIds <- gw2.achievements.getAllAchievementIds
-      randomId = allAchievementIds(Random.nextInt(allAchievementIds.size))
-      achievement <- gw2.achievements.getAchievement(randomId)
+      achievement <- gw2.achievements.getAchievement(allAchievementIds.getRandom())
+      allPricesItemIds <- gw2.commerce.getItemIdsFromPrices
+      prices <- gw2.commerce.getPrices(allPricesItemIds.getRandom())
+      allListingsItemIds <- gw2.commerce.getItemIdsFromListings
+      listings <- gw2.commerce.getListings(allListingsItemIds.getRandom())
     } yield {
       println(achievement)
+      println(prices)
+      println(listings)
       ExitCode.Success
     }
   }

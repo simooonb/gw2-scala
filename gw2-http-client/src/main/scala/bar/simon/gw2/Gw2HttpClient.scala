@@ -1,6 +1,7 @@
 package bar.simon.gw2
 
 import bar.simon.gw2.achievements.AchievementHttpClient
+import bar.simon.gw2.commerce.CommerceHttpClient
 import bar.simon.gw2.http.HttpClientConfig
 import cats.effect.Sync
 
@@ -13,7 +14,8 @@ object Gw2HttpClient {
     val config = HttpClientConfig("https://api.guildwars2.com/v2", timeout)
 
     Gw2Client(
-      new AchievementHttpClient[F](config / "achievements", lang)
+      new AchievementHttpClient[F](config / "achievements", lang),
+      new CommerceHttpClient[F](config / "commerce", lang)
     )
   }
 
