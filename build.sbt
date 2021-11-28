@@ -46,9 +46,12 @@ lazy val gw2HttpClient = Project(id = "gw2-http-client", base = file("gw2-http-c
   )
   .settings(
     libraryDependencies ++= Seq(
-      "org.scalacheck"        %% "scalacheck"               % "1.15.4",
-      "eu.timepit"            %% "refined-scalacheck"       % "0.9.27",
-      "org.scalatest"         %% "scalatest"                % "3.2.10",
-      "com.github.tomakehurst" % "wiremock"                 % "2.27.2"
+      "org.scalacheck"    %% "scalacheck"              % "1.15.4",
+      "eu.timepit"        %% "refined-scalacheck"      % "0.9.27",
+      "org.scalatest"     %% "scalatest"               % "3.2.10",
+      "org.mockito"        % "mockito-core"            % "4.1.0",
+      "org.scalatestplus" %% "mockito-1-10"            % "3.1.0.0",
+      "org.mockito"       %% "mockito-scala-scalatest" % "1.16.46",
+      "org.mockito"       %% "mockito-scala-cats"      % "1.16.46"
     ).map(_ % Test)
   )

@@ -24,8 +24,9 @@ trait AchievementCodecs {
   implicit val achievementGroupIdDecoder: Decoder[AchievementGroupId]       = deriveUnwrappedDecoder
   implicit val achievementCategoryIdDecoder: Decoder[AchievementCategoryId] = deriveUnwrappedDecoder
 
-  implicit val achievementBitDecoder: Decoder[AchievementBit]   =
-    Decoder[AchievementBit.Text].map[AchievementBit](identity)
+  implicit val achievementBitDecoder: Decoder[AchievementBit] =
+    Decoder[AchievementBit.Text]
+      .map[AchievementBit](identity)
       .or(Decoder[AchievementBit.Item].map[AchievementBit](identity))
       .or(Decoder[AchievementBit.Minipet].map[AchievementBit](identity))
       .or(Decoder[AchievementBit.Skin].map[AchievementBit](identity))

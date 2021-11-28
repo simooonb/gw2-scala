@@ -98,3 +98,5 @@ pgdata-*/**/*
 .DS_Store
 **/.DS_Store
 .bsp/
+
+gw2-http-client/src/main/scala/bar/simon/gw2/Main.scala

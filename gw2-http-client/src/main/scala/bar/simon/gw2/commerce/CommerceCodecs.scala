@@ -5,7 +5,6 @@ import bar.simon.gw2.commerce.prices.{ItemPrice, Price}
 import io.circe._
 import io.circe.generic.extras.Configuration
 import io.circe.generic.extras.semiauto.deriveConfiguredDecoder
-import io.circe.refined._
 
 trait CommerceCodecs {
 

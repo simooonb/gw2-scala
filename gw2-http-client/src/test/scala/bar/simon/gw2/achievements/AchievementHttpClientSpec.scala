@@ -9,6 +9,7 @@ import org.scalatest.wordspec.AnyWordSpec
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration.Duration
 
+// TODO: instead of calling the API, mock
 class AchievementHttpClientSpec extends AnyWordSpec with Matchers {
 
   implicit val ec: IO[ExecutionContext] = IO.executionContext

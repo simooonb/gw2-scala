@@ -27,7 +27,7 @@ final case class HttpClientConfig[F[_]](
       path: String,
       query: Map[String, String] = Map.empty,
       additionalHeaders: Map[String, String] = Map.empty
-  ): F[Response] =
+  ): F[Response] = {
     F.delay(
       requests.get(
         url = getFullUrl(path),
@@ -37,7 +37,12 @@ final case class HttpClientConfig[F[_]](
         connectTimeout = timeout.toMillis.toInt,
         check = false
       )
-    )
+    ).map { r =>
+      println(s"GET ${getFullUrl(path)}")
+      println(r.text())
+      r
+    }
+  }
 
   def parseResponse[T](response: Response)(implicit decoder: Decoder[T]): F[T] =
     decode[T](response.text()) match {
